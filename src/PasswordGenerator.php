@@ -40,16 +40,20 @@ class PasswordGenerator
      * @throws \Exception
      */
 
+    public static function charact($number = null , $strength = self::PASSWORD_MEDIUM)
+    {
 
-    public static function charact($number = null , $strength = self::PASSWORD_MEDIUM) {
-        $password = $char = '';
-        if(!in_array($strength, [
+        if(false === in_array($strength, [
             self::PASSWORD_EASY,
             self::PASSWORD_MEDIUM,
             self::PASSWORD_HARD,
         ])){
             throw new \Exception('Bad strength');
         }
+
+        $password = $char = '';
+        $lenght   = (null === ($number)) ? self::$passwordDefaultLenght : (0 === (int) $number) ? self::$passwordDefaultLenght : (int)$number;
+
         switch($strength) {
             case self::PASSWORD_EASY:
                 $char = self::$passwordCharEasy;
@@ -63,19 +67,9 @@ class PasswordGenerator
         }
         //if/else qui permet de ne définir qu'une fois $lenght
         //opérateur ternaire
-        $lenght = (is_null ($number))
-            ? self::$passwordDefaultLenght
-            : (0 === (int) $number)
-                ? self::$passwordDefaultLenght
-                : (int)$number;
 
-       //$letter = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-       //$char = 'azertyuiopqsdfghjklmwxcvbn';
-        
         for ($i = 0; $i < $lenght; $i++) {
             $password .= mb_substr($char, mt_rand(0, (mb_strlen ($char) - 1)),1);
-            //$nomberHazard = rand(0, 25);
-            //echo $letter[$nomberHazard];
         }
     return $password;
     }

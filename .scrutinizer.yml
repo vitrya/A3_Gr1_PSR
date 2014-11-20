@@ -31,7 +31,7 @@ checks:
         symfony_request_injection: true
         switch_fallthrough_commented: true
         sql_injection_vulnerabilities: true
-        spacing_of_function_arguments: false
+        spacing_of_function_arguments: true
         spacing_around_non_conditional_operators: true
         spacing_around_conditional_operators: true
         avoid_closing_tag: true
