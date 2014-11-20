@@ -43,7 +43,7 @@ class PasswordGenerator
 
     public static function charact($number = null , $strength = self::PASSWORD_MEDIUM)
     {
-        $char = '';
+        $password = $char = '';
         if(!in_array($strength, [
             self::PASSWORD_EASY,
             self::PASSWORD_MEDIUM,
@@ -51,7 +51,6 @@ class PasswordGenerator
         ])){
             throw new \Exception('Bad strength');
         }
-
 
         switch($strength) {
             case self::PASSWORD_EASY:
@@ -75,7 +74,7 @@ class PasswordGenerator
 
        // $letter = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
         //$char = 'azertyuiopqsdfghjklmwxcvbn';
-        $password='';
+
         
         for ($i=0; $i<$lenght ; $i++) {
             $password .= mb_substr($char, mt_rand(0, (mb_strlen($char)-1)),1);
