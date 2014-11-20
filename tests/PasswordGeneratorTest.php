@@ -58,7 +58,7 @@ class PasswordGeneratorTest extends \PHPUnit_Framework_TestCase
     public function testGetRandomStringNotEmpty()
     {
         $password = PasswordGenerator::charact(0);
-        $this->assertEmpty($password);
+        $this->assertNotEmpty($password);
 
     }
 }
