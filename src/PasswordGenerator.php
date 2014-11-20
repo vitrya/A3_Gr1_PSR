@@ -10,9 +10,9 @@ namespace Web1\StringGenerator;
 
 class PasswordGenerator
 {
-    const PASSWORD_EASY = 0;
+    const PASSWORD_EASY   = 0;
     const PASSWORD_MEDIUM = 1;
-    const PASSWORD_HARD = 2;
+    const PASSWORD_HARD   = 2;
 
     /**
      * @var int
@@ -41,8 +41,8 @@ class PasswordGenerator
      */
 
 
-    public static function charact($number = null , $strength = self::PASSWORD_MEDIUM)
-    {   $password = $char = '';
+    public static function charact($number = null , $strength = self::PASSWORD_MEDIUM) {
+        $password = $char = '';
         if(!in_array($strength, [
             self::PASSWORD_EASY,
             self::PASSWORD_MEDIUM,
@@ -54,18 +54,18 @@ class PasswordGenerator
             case self::PASSWORD_EASY:
                 $char = self::$passwordCharEasy;
                 break;
-            case self::PASSWORD_MEDIUM;
+            case self::PASSWORD_MEDIUM:
                 $char = self::$passwordCharEasy.self::$passwordCharMedium;
                 break;
-            case self::PASSWORD_HARD;
+            case self::PASSWORD_HARD:
                 $char = self::$passwordCharEasy.self::$passwordCharMedium.self::$passwordCharHard;
                 break;
         }
         //if/else qui permet de ne définir qu'une fois $lenght
         //opérateur ternaire
-        $lenght = (is_null($number))
+        $lenght = (is_null ($number))
             ? self::$passwordDefaultLenght
-            : (0 === (int)$number)
+            : (0 === (int) $number)
                 ? self::$passwordDefaultLenght
                 : (int)$number;
 
@@ -73,7 +73,7 @@ class PasswordGenerator
        //$char = 'azertyuiopqsdfghjklmwxcvbn';
         
         for ($i = 0; $i < $lenght; $i++) {
-            $password .= mb_substr($char, mt_rand(0, (mb_strlen($char) - 1)),1);
+            $password .= mb_substr($char, mt_rand(0, (mb_strlen ($char) - 1)),1);
             //$nomberHazard = rand(0, 25);
             //echo $letter[$nomberHazard];
         }
