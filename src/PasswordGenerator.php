@@ -52,7 +52,11 @@ class PasswordGenerator
         }
 
         $password = $char = '';
-        $lenght   = (null === ($number)) ? self::$passwordDefaultLenght : (0 === (int) $number) ? self::$passwordDefaultLenght : (int)$number;
+        $lenght   = (null === ($number))
+            ? self::$passwordDefaultLenght
+            : (0 === (int) $number)
+                ? self::$passwordDefaultLenght
+                : (int)$number;
 
         switch($strength) {
             case self::PASSWORD_EASY:
