@@ -41,7 +41,7 @@ class PasswordGenerator
      */
 
 
-    public static function charact($number = null , $strength = null )
+    public static function charact($number = null , $strength)
     {
         $char = '';
         if(!in_array($strength, [
