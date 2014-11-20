@@ -52,6 +52,7 @@ class PasswordGenerator
             throw new \Exception('Bad strength');
         }
 
+
         switch($strength) {
             case self::PASSWORD_EASY:
                 $char = self::$passwordCharEasy;
