@@ -76,7 +76,7 @@ class PasswordGenerator
         //$char = 'azertyuiopqsdfghjklmwxcvbn';
         $password='';
         
-        for ($i=0; $i<=$lenght ; $i++) {
+        for ($i=0; $i<$lenght ; $i++) {
             $password .=substr($char, mt_rand(0, (strlen($char)-1)),1);
           //  $nomberHazard = rand(0, 25);
             //echo $letter[$nomberHazard];
