@@ -10,9 +10,9 @@ namespace Web1\StringGenerator;
 
 class PasswordGenerator
 {
-    const PASSWORD_EASY =0;
-    const PASSWORD_MEDIUM =1;
-    const PASSWORD_HARD =2;
+    const PASSWORD_EASY = 0;
+    const PASSWORD_MEDIUM = 1;
+    const PASSWORD_HARD = 2;
 
     /**
      * @var int
@@ -66,27 +66,20 @@ class PasswordGenerator
 
         //if/else qui permet de ne définir qu'une fois $lenght
         //opérateur ternaire
-        $lenght=(is_null($number))
+        $lenght = (is_null($number))
             ? self::$passwordDefaultLenght
             : (0 === (int)$number)
                 ? self::$passwordDefaultLenght
                 : (int)$number;
 
-       // $letter = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-        //$char = 'azertyuiopqsdfghjklmwxcvbn';
-
+       //$letter = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+       //$char = 'azertyuiopqsdfghjklmwxcvbn';
         
-        for ($i=0; $i<$lenght ; $i++) {
+        for ($i = 0; $i < $lenght; $i++) {
             $password .= mb_substr($char, mt_rand(0, (mb_strlen($char)-1)),1);
-          //  $nomberHazard = rand(0, 25);
+            //$nomberHazard = rand(0, 25);
             //echo $letter[$nomberHazard];
         }
-        
     return $password;
-
-
-
     }
-
 }
-
