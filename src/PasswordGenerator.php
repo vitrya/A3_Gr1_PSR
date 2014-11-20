@@ -51,14 +51,14 @@ class PasswordGenerator
             throw new \Exception('Bad strength');
         }
 
-        $password = $char = '';
         $lenght   = (null === ($number))
             ? self::$passwordDefaultLenght
             : (0 === (int) $number)
                 ? self::$passwordDefaultLenght
                 : (int)$number;
+        $password = $char = '';
 
-        switch($strength) {
+        switch ($strength) {
             case self::PASSWORD_EASY:
                 $char = self::$passwordCharEasy;
                 break;
@@ -75,6 +75,7 @@ class PasswordGenerator
         for ($i = 0; $i < $lenght; $i++) {
             $password .= mb_substr($char, mt_rand(0, (mb_strlen ($char) - 1)),1);
         }
-    return $password;
+
+        return $password;
     }
 }
