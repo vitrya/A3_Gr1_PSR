@@ -26,7 +26,6 @@ class PasswordGeneratorTest extends \PHPUnit_Framework_TestCase
 
         //assertion pour faire un test
         $this->assertEquals($length,mb_strlen($password));
-
     }
 
     /**
